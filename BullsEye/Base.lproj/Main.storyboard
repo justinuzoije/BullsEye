@@ -106,6 +106,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="roundLabel" destination="iSw-K5-0cv" id="Rrh-xK-8Kk"/>
                         <outlet property="scoreLabel" destination="tSB-CI-DcP" id="PWr-OO-F01"/>
                         <outlet property="slider" destination="NgE-Qn-Uhj" id="gQu-3H-9hg"/>
                         <outlet property="targetLabel" destination="g5i-hA-8JJ" id="V7t-rX-KpK"/>

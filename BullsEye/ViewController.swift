@@ -8,15 +8,21 @@
 
 import UIKit
 
+//There are IBOutlets for all the labels in the game
+//Variables are initialized to zero
 class ViewController: UIViewController {
-    var currentValue = 0
-    var targetValue = 0
-    var score = 0
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var targetLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
+    var currentValue = 0  //This is the slider's position
+    var targetValue = 0   //This is the location the player has to move the slider to as close as possible
+    var score = 0         //This is the player's score
+    var round = 0         //This is the round number
+    @IBOutlet weak var slider: UISlider!        //This is the IBOutlet for the slider
+    @IBOutlet weak var targetLabel: UILabel!    //This is the IBOutlet for the label showing the number on the slider they have to reach
+    @IBOutlet weak var scoreLabel: UILabel!     //This is the IBOutlet for the label showing the player their score
+    @IBOutlet weak var roundLabel: UILabel!     //This is the IBOutlet for the label shwoing what round it is
 
     //This happens everytime the app starts
+    //A new round is started
+    //All the values of the labels are updated
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewRound()
@@ -37,12 +43,16 @@ class ViewController: UIViewController {
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = 50
         slider.value = Float(currentValue)
+        round += 1
     }
     
     //This function changes all the labels in the game
-    //It changes the target Label to be a string version of the target value (the number to guess this round)
+    //It changes the targetLabel's text to a be a string of the targetValue
+    //It changes the scoreLabel's text to be a string of the score's value
     func updateLabels() {
         targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
+        roundLabel.text = String(round)
     }
     
     
@@ -54,7 +64,7 @@ class ViewController: UIViewController {
     //This is the number of points the user gets
     //Then it adds the points to the score
     //Then it makes the message You scored x number of points
-    //Then it makes the alert to be Hello World, and displays the message
+    //Then it makes the alert's title change depending on how well the player did
     //Then it makes the action to be showing OK and then closing
     //Then it attaches that alert
     //Then it presents the alert
@@ -65,9 +75,23 @@ class ViewController: UIViewController {
         
         score += points
         
+        let title: String //This initializes the variable title as a String
+        
         let message = "You scored \(points) points"
         
-        let alert = UIAlertController(title: "Hello, World",
+        
+        if difference == 0 {
+            title = "Perfect!"              //This sets the title for when the player gets the number exactly right
+        } else if difference < 5 {
+            title = "You almost had it!"                //This sets the title for being less than 5 points away
+        } else if difference < 10 {
+            title = "Pretty good!"    //This sets the title for being within 9 points of the target
+        } else {
+            title = "Not even close..."       //This sets the title for being 10 or more ponits off
+        }
+        
+        
+        let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
         
