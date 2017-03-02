@@ -20,12 +20,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!     //This is the IBOutlet for the label showing the player their score
     @IBOutlet weak var roundLabel: UILabel!     //This is the IBOutlet for the label shwoing what round it is
 
+
     //This happens everytime the app starts
-    //A new round is started
+    //A new game
     //All the values of the labels are updated
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        startNewGame()
         updateLabels()
     }
 
@@ -56,6 +57,14 @@ class ViewController: UIViewController {
     }
     
     
+    //This function resets the score and round to 0 and then updates these values on the screen
+    func startNewGame() {
+        score = 0
+        round = 0
+        startNewRound()
+    }
+    
+    
     
     //This function is connected to the interface itself
     //This function controls what the user sees when they click hit me
@@ -71,40 +80,51 @@ class ViewController: UIViewController {
     //Then it starts a new around and changes all the labels
     @IBAction func showAlert() {
         let difference = abs(targetValue - currentValue)
-        let points = 100 - difference
+        var points = 100 - difference
+        
+        let title: String
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        } else if difference < 5 {
+            title = "You almost had it!"
+            if difference == 1 {
+                points += 50
+            }
+        } else if difference < 10 {
+            title = "Pretty good!"
+        } else {
+            title = "Not even close..."
+        }
         
         score += points
         
-        let title: String //This initializes the variable title as a String
-        
         let message = "You scored \(points) points"
-        
-        
-        if difference == 0 {
-            title = "Perfect!"              //This sets the title for when the player gets the number exactly right
-        } else if difference < 5 {
-            title = "You almost had it!"                //This sets the title for being less than 5 points away
-        } else if difference < 10 {
-            title = "Pretty good!"    //This sets the title for being within 9 points of the target
-        } else {
-            title = "Not even close..."       //This sets the title for being 10 or more ponits off
-        }
-        
-        
+    
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "OK",
-                                   style: .default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .default,
+                                   handler: { action in
+                                                self.startNewRound()
+                                                self.updateLabels()
+                                            })
         
         alert.addAction(action)
-        
         present(alert, animated: true, completion: nil)
-        startNewRound()
-        updateLabels()
-        
     }
+    
+    //This function is connected to the Start Over button
+    //It causes a new game to start, and then updates all the labels on the screen to show the new data
+    @IBAction func startOver() {
+        startNewGame()
+        updateLabels()
+    }
+    
+    
+    
+    
     
     @IBAction func doTaxes() {
     
