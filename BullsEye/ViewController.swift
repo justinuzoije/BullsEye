@@ -122,13 +122,7 @@ class ViewController: UIViewController {
         updateLabels()
     }
     
-    
-    
-    
-    
-    @IBAction func doTaxes() {
-    
-    }
+
     
     //This function takes in the slider's position, changes it to an int and sets it to current Value
     @IBAction func sliderMoved(_ slider: UISlider) {
