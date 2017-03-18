@@ -9,6 +9,7 @@
 import UIKit
 
 class AboutViewController: UIViewController {
+    @IBOutlet weak var webView: UIWebView!
     
     @IBAction func close() {
         dismiss(animated: true, completion: nil)
