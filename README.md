@@ -1,11 +1,11 @@
 # Bull's Eye 
 
-This is an iOS game where you win points by dragging a slider as possible to a target value. The closer you are, the more points you score.  
+This is an iOS game where you win points by dragging a slider as close as possible to a target value. The closer you are, the more points you score.  
 
 ## Installing
 
-To get the game running, you will need to import the project into Xcode and then run a simulation of the game. Alternatively, you can
-connect your iphone or ipad and run the game there through Xcode for a more realistic experience. 
+To get the game running, you will need to import the project into Xcode and then run a simulation of the game. You can also
+connect your iphone or ipad and run the game on it through Xcode. 
 
 ## Screenshots
 
@@ -125,6 +125,3 @@ be in the middle with a current value of 50 to represent this. The labels are up
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Marvel Comics 
