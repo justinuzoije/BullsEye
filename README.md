@@ -9,7 +9,7 @@ connect your iphone or ipad and run the game on it through Xcode.
 
 ## Video of Gameplay
 
-<a href="https://youtu.be/FxJbjC0VJW0" target="_blank"><img src="https://img.youtube.com/vi/HwRy-CNaNMY/0.jpg" width="240" height="180" border="10" /></a>
+<a href="https://youtu.be/HwRy-CNaNMY" target="_blank"><img src="https://img.youtube.com/vi/HwRy-CNaNMY/0.jpg" width="240" height="180" border="10" /></a>
 
 ## Screenshots
 
