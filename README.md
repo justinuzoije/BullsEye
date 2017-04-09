@@ -7,6 +7,10 @@ This is an iOS game where you win points by dragging a slider as close as possib
 To get the game running, you will need to import the project into Xcode and then run a simulation of the game. You can also
 connect your iphone or ipad and run the game on it through Xcode. 
 
+## Video of Gameplay
+
+<a href="https://youtu.be/FxJbjC0VJW0" target="_blank"><img src="https://img.youtube.com/vi/HwRy-CNaNMY/0.jpg" width="240" height="180" border="10" /></a>
+
 ## Screenshots
 
 Game Screen
